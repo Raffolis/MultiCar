@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiCar.Pages.HomePage"
+             Title="Home">
+
+    <VerticalStackLayout 
+        Padding="20"
+        BackgroundColor="#e8e8e8">
+        
+        <Frame BackgroundColor="#E8E8E8"
+               CornerRadius="25"
+               Padding="5"
+               HasShadow="False"
+               Margin="0,10,0,20">
+
+            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center">
+
+                <Frame
+                    Grid.Column="0"
+                    BackgroundColor="#00BF63"
+                    CornerRadius="10"
+                    WidthRequest="45"
+                    HeightRequest="45">
+
+                    <Image
+                        x:Name="imgPesquisar"
+                        Source="pesquisar.png"
+                        WidthRequest="40"
+                        HeightRequest="40"/>
+
+                </Frame>
+
+                <SearchBar 
+                    x:Name="searchBar"
+                    Grid.Column="1"
+                    Placeholder="Pesquisar..."
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    PlaceholderColor="Gray"
+                    FontSize="16"
+                    HeightRequest="50"
+                    VerticalOptions="Center"
+                    SearchCommand="{Binding PesquisarCommand}"
+                    SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+
+
+                <Button Grid.Column="2"
+                        BackgroundColor="Transparent"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        ImageSource="limpar.png"
+                        Command="{Binding LimparPesquisaCommand}" />
+            </Grid>
+        </Frame>
+
+    </VerticalStackLayout>
+
+</ContentPage> 
